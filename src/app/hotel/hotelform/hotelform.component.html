@@ -1,0 +1,17 @@
+<form #fm="ngForm" (ngSubmit)="onFormSubmit()">
+    
+    
+    <div>
+        <mat-form-field>
+                <input matInput placeholder="HotelName" name="hotel" [(ngModel)]="formObject.hotel" required>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+                <input type="text" matInput placeholder="VatNumber" name="vatNumber" [(ngModel)]="formObject.vatNumber" required>
+        </mat-form-field>
+    </div>
+    <div>
+        <button color="primary" [disabled]="!fm.valid" type="submit" mat-flat-button>Save</button>
+    </div>
+</form>

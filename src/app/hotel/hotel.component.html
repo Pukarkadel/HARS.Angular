@@ -1,0 +1,31 @@
+<h2>Hotel</h2>
+<table mat-table [dataSource]="hotelData" class="mat-elevation-z8" [ngClass]="'mattable'" >
+
+    <ng-container matColumnDef="hotelId">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.hotelId}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="hotel">
+      <th mat-header-cell *matHeaderCellDef> Hotel </th>
+      <td mat-cell *matCellDef="let element"> {{element.hotel}} </td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="vatNumber">
+      <th mat-header-cell *matHeaderCellDef> Vat Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.vatNumber}} </td>
+    </ng-container>
+  
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;let i=index" [ngClass]="{'highlight': selectedRow == i}"(click)="onRowClick(i)"></tr>
+  </table>
+  
+  <div>
+    <button mat-button mat-flat-button color="primary" (click)="onAddClick()">Add</button>
+    <button mat-button mat-flat-button color="primary" (click)="onEditClick()">Edit</button>
+    <button mat-button mat-flat-button color="primary"(click)="onDeleteClick()">Delete</button>
+    </div>
+  

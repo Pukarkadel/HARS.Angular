@@ -1,0 +1,58 @@
+
+
+<h2>Customer</h2>
+
+  
+    <input matInput placeholder="Search" [(ngModel)]="search" name="search">
+  
+   
+  <button type="submit" mat-button color="primary" (click)="onSearchClick()">Search</button>
+  
+
+<table mat-table [dataSource]= "personData" class="mat-elevation-z8" [ngClass]="'mattable'">
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef>First Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="middlename">
+    <th mat-header-cell *matHeaderCellDef>Middle Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef>Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+      </ng-container>
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>Address</th>
+    <td mat-cell *matCellDef="let element"> {{element.customerAddress}} </td>
+  </ng-container>
+
+ <ng-container matColumnDef="citizenshipNumber">
+    <th mat-header-cell *matHeaderCellDef>CitizenshipNumber</th>
+    <td mat-cell *matCellDef="let element"> {{element.citizenshipNumber}} </td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="hotelId">
+    <th mat-header-cell *matHeaderCellDef>hotelId</th>
+    <td mat-cell *matCellDef="let element"> {{element.hotelId}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;let i=index" [ngClass]="{'highlight': selectedRow == i}"(click)="onRowClick(i)"></tr>
+
+</table>
+
+<!-- <app-customer-detail [customerName]="myCustomer" (message)="onMessageReceive($event)">
+
+</app-customer-detail> -->
+
+<button mat-button mat-flat-button color="primary" (click)="onAddClick()">Add</button>
+<button mat-button mat-flat-button color="primary" (click)="onEditClick()">Edit</button>
+<button mat-button mat-flat-button color="primary" (click)="onDeleteClick()">Delete</button>

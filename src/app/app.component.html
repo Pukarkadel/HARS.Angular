@@ -1,0 +1,43 @@
+
+<!-- <app-main-nav></app-main-nav> -->
+
+<mat-sidenav-container id="drawerMat">
+    <mat-sidenav #drawer class="sidenav" mode="side">
+        <p>Menu</p>
+        
+        <button class="mPointer" mat-button color="primary" *ngFor="let data of routerArray" routerLink={{data.path}}>{{data.component}}</button>
+        
+    </mat-sidenav>
+    <div class="sidenav-content">
+        <mat-toolbar-row>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+            <span routerLink="/home">
+                <span   class="mPointer" style="font-size: 1rem;"><mat-icon>hotel</mat-icon></span>&nbsp;&nbsp; &nbsp; 
+            </span>
+            <span routerLink="/home"  class="mPointer">
+                <!-- <span  class="logo">HARS</span> -->
+            </span>
+
+            <span routerLink="/customer">
+                <span   class="mPointer" style="font-size: 1rem;"><mat-icon>customer</mat-icon></span>&nbsp;&nbsp; &nbsp; 
+            </span>
+            <span routerLink="/customer"  class="mPointer">
+                <!-- <span  class="logo">HARS</span> -->
+            </span>
+
+
+            <!-- <mat-slide-toggle  (change)="changed()" >Slide It</mat-slide-toggle> -->
+
+            <!-- <mat-icon style="float:right;">favorite</mat-icon> -->
+        </mat-toolbar-row>
+        
+    </div>
+<router-outlet id="color-overlay">
+    <!-- <div id="color-overlay"></div> -->
+</router-outlet>
+
+
+</mat-sidenav-container>
